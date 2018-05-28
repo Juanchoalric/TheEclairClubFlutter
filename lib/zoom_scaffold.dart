@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:the_eclair_club/menu_screen.dart';
 
 class ZoomScatffold extends StatefulWidget {
   final Widget menuScreen;
@@ -125,7 +124,7 @@ class _ZoomScatffoldState extends State<ZoomScatffold> with TickerProviderStateM
   }
 }
 
-class ZoomScaffodMenuController extends StatelessWidget {
+class ZoomScaffodMenuController extends StatefulWidget {
 
   final ZoomScaffoldBuild builder;
 
@@ -133,7 +132,31 @@ class ZoomScaffodMenuController extends StatelessWidget {
     this.builder,
   });
 
-  getMenuController(BuildContext context){
+
+  @override
+  ZoomScaffodMenuControllerState createState() {
+    return new ZoomScaffodMenuControllerState();
+  }
+}
+
+class ZoomScaffodMenuControllerState extends State<ZoomScaffodMenuController> {
+
+  MenuController menuController;
+
+  @override
+  void initState(){
+    super.initState();
+    menuController = getMenuController(context);
+    menuController.addListener(_onMenuControllerChange);
+  }
+
+  @override
+  void dispose(){
+    menuController.removeListener(_onMenuControllerChange);
+    super.dispose();
+  }
+
+   getMenuController(BuildContext context){
     final scaffoldState = context.ancestorStateOfType(
         new TypeMatcher<_ZoomScatffoldState>()
 
@@ -141,9 +164,13 @@ class ZoomScaffodMenuController extends StatelessWidget {
     return scaffoldState.menuController;
   }
 
+  _onMenuControllerChange(){
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
-    return builder(context, getMenuController(context));
+    return widget.builder(context, getMenuController(context));
   }
 }
 

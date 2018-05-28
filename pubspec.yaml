@@ -35,6 +35,8 @@ flutter:
      - assets/postre3.jpg
      - assets/light-pink-solid-color-background.jpg
      - assets/white-background.jpg
+     - assets/acuarelas.jpg
+     - assets/acuarelas2.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
@@ -73,3 +75,7 @@ flutter:
       - family: Varela Round Regular
         fonts:
           - asset: fonts/VarelaRound-Regular.ttf
+
+      - family: Permanent Marker Regular
+        fonts:
+          - asset: fonts/PermanentMarker-Regular.ttf
