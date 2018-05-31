@@ -71,12 +71,12 @@ class _MenuState extends State<MenuScreen> with TickerProviderStateMixin {
           maxWidth: double.infinity,
           alignment: Alignment.topLeft,
           child: new Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.only(top: 50.0, left: 30.0, bottom: 30.0, right: 30.0),
             child: new Text(
               'Eclair',
               style: new TextStyle(
                 color: secondaryLightColor,
-                fontSize: 150.0,
+                fontSize: 120.0,
                 fontFamily: 'Handlee',
               ),
               textAlign: TextAlign.left,
@@ -87,7 +87,7 @@ class _MenuState extends State<MenuScreen> with TickerProviderStateMixin {
         builder: (BuildContext context, Widget child) {
           return new Transform(
             transform: new Matrix4.translationValues(
-              240.0 * (1.0 - titleAnimationController.value) - 85.0,
+              240.0 * (1.0 - titleAnimationController.value) - 40.0,
               0.0,
               0.0,
             ),
