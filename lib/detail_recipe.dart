@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:carousel/carousel.dart';
 import 'package:the_eclair_club/theme.dart';
 
 class DetailRecipePage extends StatefulWidget {

@@ -38,6 +38,12 @@ flutter:
      - assets/white-background.jpg
      - assets/acuarelas.jpg
      - assets/acuarelas2.jpg
+     - assets/cupcakes&cakes.jpg
+     - assets/dessert.jpg
+     - assets/entrees.jpg
+     - assets/sides.jpeg
+     - assets/slowcooker.jpg
+     - assets/onepotmeals.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
