@@ -17,7 +17,7 @@ final categoryRecipes = new Screen(
               onPressed: () {
                 var route = new MaterialPageRoute(
                   builder: (BuildContext context) => new CategoryRecipeList(
-                       
+                       textCategory: categoryList.categories[index].text,
                       ),
                 );
                 Navigator.of(context).push(route);

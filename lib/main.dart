@@ -1,14 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:the_eclair_club/category_recipes.dart';
+import 'package:the_eclair_club/help_me_grow.dart';
 import 'package:the_eclair_club/home_recipe_screen.dart';
 import 'package:the_eclair_club/menu_screen.dart';
 import 'package:the_eclair_club/about_me.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:the_eclair_club/zoom_scaffold.dart';
-import '\/c:/Users/juan.alric/Desktop/TheEclairClubFlutter/lib/help_me_grow.dart';
-import '\/c:/Users/juan.alric/Desktop/TheEclairClubFlutter/lib/category_recipes.dart';
+
+import 'package:firebase_core/firebase_core.dart';
+
+
+
 
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
+
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

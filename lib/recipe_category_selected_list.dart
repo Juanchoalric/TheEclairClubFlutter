@@ -3,11 +3,19 @@ import 'package:the_eclair_club/theme.dart';
 import 'detail_recipe.dart';
 
 class CategoryRecipeList extends StatefulWidget {
+
+  final String textCategory;
+
+  CategoryRecipeList({
+    this.textCategory,
+});
+
   @override
   _CategoryRecipeListState createState() => new _CategoryRecipeListState();
 }
 
 class _CategoryRecipeListState extends State<CategoryRecipeList> {
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -22,111 +30,112 @@ class _CategoryRecipeListState extends State<CategoryRecipeList> {
                       child: new ListView.builder(
             itemCount: recipesList.recipes.length,
             itemBuilder: (context, i) {
-              final recipe = recipesList.recipes[i];
-              return new FlatButton(
-                padding: new EdgeInsets.all(0.0),
-                onPressed: () {
-                  var route = new MaterialPageRoute(
-                    builder: (BuildContext context) => new DetailRecipePage(
-                          title: recipe.title,
-                          firstImage: recipe.firstImage,
-                          secondImage: recipe.secondImage,
-                          thirdImage: recipe.thirdImage,
-                          fourthImage: recipe.fourthImage,
-                          introductionText: recipe.introductionText,
-                          secondText: recipe.secondText,
-                          endingText: recipe.endingText,
-                          stepsToPrepare: recipe.stepsToPrepare,
-                          ingredients: recipe.ingredients,
-                          category: recipe.category,
-                        ),
-                  );
-                  Navigator.of(context).push(route);
-                },
-                child: new Padding(
-                  padding:
-                      const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
-                  child: new Card(
-                    elevation: 10.0,
-                    child: new Column(
-                      children: <Widget>[
-                        new Image.asset(
-                          recipe.firstImage,
-                          width: double.infinity,
-                          height: 150.0,
-                          fit: BoxFit.cover,
-                        ),
-                        new Row(
-                          children: <Widget>[
-                            new Padding(
-                              padding: const EdgeInsets.all(15.0),
-                              child: new Container(
-                                padding: const EdgeInsets.all(10.0),
-                                decoration: new BoxDecoration(
-                                  color: primaryDarkColor,
-                                  borderRadius: new BorderRadius.all(
-                                      const Radius.circular(15.0)),
-                                ),
-                                child: new Icon(
-                                  Icons.fastfood,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            new Expanded(
-                              child: new Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  new Text(
-                                    recipe.title,
-                                    style: const TextStyle(
-                                        fontSize: 25.0, fontFamily: "Handlee"),
-                                  ),
-                                  new Text(
-                                    recipe.subTitle,
-                                    style: const TextStyle(
-                                      fontSize: 16.0,
-                                      fontFamily: "Varela Round Regular",
-                                      color: textLightColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            new Container(
-                              width: 2.0,
-                              height: 70.0,
-                              decoration: new BoxDecoration(
-                                  gradient: new LinearGradient(
-                                colors: [
-                                  Colors.white,
-                                  Colors.white,
-                                  textLightColor,
-                                ],
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                              )),
-                            ),
-                            new Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 15.0, right: 15.0),
-                              child: new Column(
-                                children: <Widget>[
-                                  new Icon(
-                                    Icons.favorite_border,
+              if (recipesList.recipes[i].category == widget.textCategory){
+                return new FlatButton(
+                  padding: new EdgeInsets.all(0.0),
+                  onPressed: () {
+                    var route = new MaterialPageRoute(
+                      builder: (BuildContext context) => new DetailRecipePage(
+                        title: recipesList.recipes[i].title,
+                        firstImage: recipesList.recipes[i].firstImage,
+                        secondImage: recipesList.recipes[i].secondImage,
+                        thirdImage: recipesList.recipes[i].thirdImage,
+                        fourthImage: recipesList.recipes[i].fourthImage,
+                        introductionText: recipesList.recipes[i].introductionText,
+                        secondText: recipesList.recipes[i].secondText,
+                        endingText: recipesList.recipes[i].endingText,
+                        stepsToPrepare: recipesList.recipes[i].stepsToPrepare,
+                        ingredients: recipesList.recipes[i].ingredients,
+                        category: recipesList.recipes[i].category,
+                      ),
+                    );
+                    Navigator.of(context).push(route);
+                  },
+                  child: new Padding(
+                    padding:
+                    const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 10.0),
+                    child: new Card(
+                      elevation: 10.0,
+                      child: new Column(
+                        children: <Widget>[
+                          new Image.asset(
+                            recipesList.recipes[i].firstImage,
+                            width: double.infinity,
+                            height: 150.0,
+                            fit: BoxFit.cover,
+                          ),
+                          new Row(
+                            children: <Widget>[
+                              new Padding(
+                                padding: const EdgeInsets.all(15.0),
+                                child: new Container(
+                                  padding: const EdgeInsets.all(10.0),
+                                  decoration: new BoxDecoration(
                                     color: primaryDarkColor,
+                                    borderRadius: new BorderRadius.all(
+                                        const Radius.circular(15.0)),
                                   ),
-                                  new Text(recipe.likes.toString()),
-                                ],
+                                  child: new Icon(
+                                    Icons.fastfood,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ),
-                            ),
-                          ],
-                        )
-                      ],
+                              new Expanded(
+                                child: new Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    new Text(
+                                      recipesList.recipes[i].title,
+                                      style: const TextStyle(
+                                          fontSize: 25.0, fontFamily: "Handlee"),
+                                    ),
+                                    new Text(
+                                      recipesList.recipes[i].subTitle,
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        fontFamily: "Varela Round Regular",
+                                        color: textLightColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              new Container(
+                                width: 2.0,
+                                height: 70.0,
+                                decoration: new BoxDecoration(
+                                    gradient: new LinearGradient(
+                                      colors: [
+                                        Colors.white,
+                                        Colors.white,
+                                        textLightColor,
+                                      ],
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter,
+                                    )),
+                              ),
+                              new Padding(
+                                padding:
+                                const EdgeInsets.only(left: 15.0, right: 15.0),
+                                child: new Column(
+                                  children: <Widget>[
+                                    new Icon(
+                                      Icons.favorite_border,
+                                      color: primaryDarkColor,
+                                    ),
+                                    new Text(recipesList.recipes[i].likes.toString()),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
+                );
+              }
             }),
           ),
     );
@@ -152,6 +161,7 @@ final recipesList = new Recipes(
       stepsToPrepare:
           "Put the cake inside the oven|Then put it inside the fridge|Microwave for 50 seconds",
       likes: 60,
+      category: "Cakes & Cupcakes"
     ),
     new Recipe(
         firstImage: "assets/postre1.jpg",
@@ -170,7 +180,7 @@ final recipesList = new Recipes(
         stepsToPrepare:
             "Put the cake inside the oven|Then put it inside the fridge|Microwave for 50 seconds",
         likes: 60,
-        category: "Cakes and Cupcakes"),
+        category: "Cakes & Cupcakes"),
     new Recipe(
         firstImage: "assets/postre1.jpg",
         secondImage: "assets/postre1.jpg",

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "357359666050",
+    "firebase_url": "https://the-eclair-club.firebaseio.com",
+    "project_id": "the-eclair-club",
+    "storage_bucket": "the-eclair-club.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357359666050:android:33aa45d5425173fc",
+        "android_client_info": {
+          "package_name": "com.example.theeclairclub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357359666050-lnkai91c4m6b6dk1qd3oc1m7h2psil44.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "357359666050-lnkai91c4m6b6dk1qd3oc1m7h2psil44.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwndeenRj36VG5AGLfp85ufZgNNZIc9oM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

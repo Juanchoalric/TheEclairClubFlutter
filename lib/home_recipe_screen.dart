@@ -1,7 +1,31 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:the_eclair_club/theme.dart';
 import 'package:the_eclair_club/zoom_scaffold.dart';
 import 'detail_recipe.dart';
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
+final GoogleSignIn googleSignIn = new GoogleSignIn();
+int control = 1;
+
+Future _testSignInWithGoogle() async {
+  GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
+  GoogleSignInAuthentication gSA = await googleSignInAccount.authentication;
+
+  FirebaseUser user = await _auth.signInWithGoogle(
+    idToken: gSA.idToken,
+    accessToken: gSA.accessToken,
+  );
+
+  print("User Name: ${user.displayName}");
+
+  return user;
+}
+
+
 
 final Screen recipeScreen = new Screen(
     title: 'Home Sweet Home',
@@ -12,6 +36,11 @@ final Screen recipeScreen = new Screen(
       return ListView.builder(
           itemCount: recipesList.recipes.length,
           itemBuilder: (context, i) {
+            if(control == 1){
+              _testSignInWithGoogle();
+              control++;
+            }
+
             final recipe = recipesList.recipes[i];
             return new FlatButton(
               padding: new EdgeInsets.all(0.0),
